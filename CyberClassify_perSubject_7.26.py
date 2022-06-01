@@ -46,17 +46,17 @@ trainPredictorList = []
 for sub in trainSubjects:
     #loop through and load predictor labels
     #update directory and file name for the inclusion / exclusion labels
-    subFile = pd.read_excel('C:\\Users\\Sara\\Documents\\Actual Documents\\UPenn Second Year\\IRTG\\Cyberball\\TrainData\\Cyberball_Logfiles\\'+ sub + '.xls')
+    subFile = pd.read_excel('\\TrainData\\Cyberball_Logfiles\\'+ sub + '.xls')
     for i in range(1,21):
         #update column name for the inclusion / exclusion labels
         if subFile.Condition[i-1] == 1 or subFile.Condition[i-1] == 4:
             #make list of images for each subject for each block, only add image if during a performance/free block
-            trainImageList.append('C:\\Users\\Sara\\Documents\\Actual Documents\\UPenn Second Year\\IRTG\\Cyberball\\TrainData\\' + sub + '\\beta_' + '%04d' %i + '.nii')
+            trainImageList.append('\\TrainData\\' + sub + '\\beta_' + '%04d' %i + '.nii')
             #make predictor list, append 0 for exclusion in either performance or free game
             trainPredictorList.append(0)
         if subFile.Condition[i-1] == 2 or subFile.Condition[i-1] == 5:
             #make list of images for each subject for each block, only add image if during a performance/free block
-            trainImageList.append('C:\\Users\\Sara\\Documents\\Actual Documents\\UPenn Second Year\\IRTG\\Cyberball\\TrainData\\' + sub + '\\beta_' + '%04d' %i + '.nii')
+            trainImageList.append('\\TrainData\\' + sub + '\\beta_' + '%04d' %i + '.nii')
             #make predictor list,append 1 for inclusion in either performance or free game
             trainPredictorList.append(1)
 
@@ -87,16 +87,16 @@ f1scoreList = []
 for sub in testSubjects:
     #loop through and load predictor labels
     #update directory and file name for the inclusion / exclusion labels
-    subFile = pd.read_excel('C:\\Users\\Sara\\Documents\\Actual Documents\\UPenn Second Year\\IRTG\\Cyberball\\FirstLevel_CB3\\Cyberball_Methoden_Logfiles\\'+ sub + '_Makro.xls')
+    subFile = pd.read_excel('\\FirstLevel_CB3\\Cyberball_Methoden_Logfiles\\'+ sub + '_Makro.xls')
     for i in range(1,17):
         if subFile.Condition[i-1] == 1 or subFile.Condition[i-1] == 4:
             #make list of images for each subject for each block, only add image if during a performance/free block
-            testImageList.append('C:\\Users\\Sara\\Documents\\Actual Documents\\UPenn Second Year\\IRTG\\Cyberball\\FirstLevel_CB3\\' + sub + '\\beta_' + '%04d' %i + '.nii')
+            testImageList.append('\\FirstLevel_CB3\\' + sub + '\\beta_' + '%04d' %i + '.nii')
             #make predictor list, append 0 for exclusion in either performance or free game
             testPredictorList.append(0)
         if subFile.Condition[i-1] == 2 or subFile.Condition[i-1] == 5:
             #make list of images for each subject for each block, only add image if during a performance/free block
-            testImageList.append('C:\\Users\\Sara\\Documents\\Actual Documents\\UPenn Second Year\\IRTG\\Cyberball\\FirstLevel_CB3\\' + sub + '\\beta_' + '%04d' %i + '.nii')
+            testImageList.append('\\FirstLevel_CB3\\' + sub + '\\beta_' + '%04d' %i + '.nii')
             #make predictor list,append 1 for inclusion in either performance or free game
             testPredictorList.append(1)
     #replace NaNs with zeros
